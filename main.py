@@ -4,7 +4,11 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
 service = Service(ChromeDriverManager().install())
-browser = webdriver.Chrome(service=service)
+
+options = webdriver.ChromeOptions()
+options.add_argument("headless")
+
+browser = webdriver.Chrome(service=service, chrome_options=options)
 
 browser.get("https://www.etfsbrasil.com.br/rankings")
 
